@@ -1,0 +1,216 @@
+#include <iostream>
+#include<conio.h>
+using namespace std;
+void addbook();
+void bookinfo();
+void authorname();
+void total();
+void title();
+void idnumber();
+struct library
+{
+
+    int   idnumber;
+
+    string bookname;
+    string authorname;
+    string price;
+    string issuance;
+
+}l[50];
+int cont;
+void display();
+
+int main()
+{
+    display();
+    while (true) {
+        cout << "  " << endl;
+        cout << "                               -------------------------------- " << endl;
+        cout << "                               | press any key to run program |                                   " << endl;
+        cout << "                               -------------------------------- " << endl;
+        _getch();
+        system("cls");
+
+        cout << "=================================================================" << endl;
+        cout << "Press 1 to add book information" << endl;
+        cout << "Press 2 to Display the book information" << endl;
+        cout << "Press 3 to list all books of given author " << endl;
+        cout << "Press 4 for to see how many books are there" << endl;
+        cout << "Press 5 for list the title of specific book " << endl;
+        cout << "press 6 for list the books for books ids " << endl;
+        cout << "press 7 for EXIT" << endl;
+        cout << "=================================================================" << endl << endl;
+        cout << "  " << endl;
+        cout << " -------------------- " << endl;
+        cout << " | Enter your choice|                                   " << endl;
+        cout << " -------------------- ";
+
+        int a;
+        cin >> a;
+        switch (a)
+        {
+        case 1:
+            addbook();
+            break;
+        case 2:
+            bookinfo();
+            break;
+        case 3:
+            authorname();
+            break;
+        case 4:
+            total();
+            break;
+        case 5:
+            title();
+            break;
+        case 6:
+            idnumber();
+            break;
+        case 7:
+            exit(0);
+            break;
+        default:
+            cout << "invalid entry" << endl;
+        }
+
+    }
+
+    return 0;
+}
+void display()
+{
+    cout << "              -----------------------------------------------------------------------------" << endl;
+    cout << "              |~                                                                          ~|" << endl;
+    cout << "              |~                                                                          ~|" << endl;
+    cout << "              |~                                                                          ~|" << endl;
+    cout << "              |~             WELCOME TO LAIBRARY MANAGEMAENT SYSTEM                       ~|" << endl;
+    cout << "              |~                                                                          ~|" << endl;
+    cout << "              |~                                                                          ~|" << endl;
+    cout << "              |~                                                                          ~|" << endl;
+    cout << "              ------------------------------------------------------------------------------" << endl;
+}
+
+void addbook()
+{
+
+
+    cout << "Enter Book name =" << endl;
+    cin >> l[cont].bookname;
+    cout << "Enter author name =" << endl;
+    cin >> l[cont].authorname;
+    cout << "Enter Book idnumber =" << endl;
+    cin >> l[cont].idnumber;
+    cout << "Enter price of Book  =" << endl;
+    cin >> l[cont].price;
+    cout << "Enter Book issued (Yes or No)" << endl;
+    cin >> l[cont].issuance;
+    cont++;
+
+}
+void bookinfo()
+{
+    cout << "              -----------------------------------------------------------" << endl;
+    cout << "              |                Display Book information                  |" << endl;
+    cout << "              -----------------------------------------------------------" << endl;
+
+    for (int i = 0; i < cont; i++)
+    {
+
+        cout << "              ----------------------------------------------------------" << endl;
+        cout << "              |               Id number of book= " << l[i].idnumber << endl;
+        cout << "              |               Title of book is = " << l[i].bookname << endl;
+        cout << "              |              Name of author is = " << l[i].authorname << endl;
+        cout << "              |               Price of book is " << l[i].price << endl;
+        cout << "              |                 Boook issued (yes or no)" << l[i].issuance << endl;
+        cout << "              ----------------------------------------------------------" << endl;
+
+    }
+
+
+
+
+}
+
+void authorname()
+{
+
+    string a;
+    cout << "Enter author name =" << endl;
+    cin >> a;
+    for (int i = 0; i < cont; i++)
+    {
+        if (a == l[i].authorname)
+        {
+            cout << "              ----------------------------------------------------------" << endl;
+            cout << "              |               Id number of book= " << l[i].idnumber << endl;
+            cout << "              |               Title of book is = " << l[i].bookname << endl;
+            cout << "              |              Name of author is = " << l[i].authorname << endl;
+            cout << "              |               Price of book is " << l[i].price << endl;
+            cout << "              |                 Boook issued (yes or no)" << l[i].issuance << endl;
+            cout << "              ----------------------------------------------------------" << endl;
+
+        }
+        else {
+            cout << "no book of this type" << endl;
+        }
+    }
+
+}
+void total()
+{
+    cout << "number of books in libraray:" << endl;
+    cout << cont;
+
+}
+
+void title()
+{
+    string a;
+    cout << "Enter title of book =" << endl;
+    cin >> a;
+    for (int i = 0; i < cont; i++)
+    {
+        if (a == l[i].bookname) {
+            cout << "              ----------------------------------------------------------" << endl;
+            cout << "              |               Id number of book= " << l[i].idnumber << endl;
+            cout << "              |               Title of book is = " << l[i].bookname << endl;
+            cout << "              |              Name of author is = " << l[i].authorname << endl;
+            cout << "              |               Price of book is " << l[i].price << endl;
+            cout << "              |                 Boook issued (yes or no)" << l[i].issuance << endl;
+            cout << "              ----------------------------------------------------------" << endl;
+
+        }
+        else {
+            cout << "no book of this type" << endl;
+        }
+
+    }
+
+}
+void idnumber()
+{
+    int a;
+    cout << "Enter id number of book =" << endl;
+    cin >> a;
+    for (int i = 0; i < cont; i++)
+    {
+        if (a == l[i].idnumber) {
+            cout << "              ----------------------------------------------------------" << endl;
+            cout << "              |               Id number of book= " << l[i].idnumber << endl;
+            cout << "              |               Title of book is = " << l[i].bookname << endl;
+            cout << "              |              Name of author is = " << l[i].authorname << endl;
+            cout << "              |               Price of book is " << l[i].price << endl;
+            cout << "              |                 Boook issued (yes or no)" << l[i].issuance << endl;
+            cout << "              ----------------------------------------------------------" << endl;
+
+        }
+        else
+        {
+            cout << " no book of this id is availabe ";
+        }
+    }
+
+
+}
